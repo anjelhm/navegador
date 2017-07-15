@@ -2,6 +2,7 @@ import { combineReducers } from 'redux';
 import { NavigationActions } from 'react-navigation';
 
 import {
+  HOME,
   PERFIL
 } from '../constants/ActionTypes';
 
@@ -16,6 +17,12 @@ const nav = (state = estadoInicial, action) => {
     case PERFIL:
       nextState = Navegador.router.getStateForAction(
         NavigationActions.navigate({ routeName: 'Perfil' }),
+        state
+      );
+      break;
+    case HOME:
+      nextState = Navegador.router.getStateForAction(
+        NavigationActions.navigate({ routeName: 'Home' }),
         state
       );
       break;

@@ -2,17 +2,20 @@ import React, { Component } from 'react';
 import {
   View,
   Text,
-  Button
+  Button,
+  StatusBar
 } from 'react-native';
 
 import { connect } from 'react-redux';
 
 import { iniciaPerfil } from '../actions/navegador/actions';
 
+import Drawer from './comunes/Drawer';
+
 class ContenedorHome extends Component {
 
   static navigationOptions = {
-    title: 'Bienvenido'
+    header: null
   };
 
   haciaPerfil() {
@@ -20,13 +23,18 @@ class ContenedorHome extends Component {
   }
 
   render() {
+
     return (
-      <View>
-        <Text>Bienvenido!!</Text>
-        <Button
-          title="Perfil"
-          onPress={ this.haciaPerfil.bind(this) }
-        />
+      <View style={{ flex: 1 }}>
+        <Drawer titulo="Bienvenido">
+          <View>
+            <Text>Hola</Text>
+            <Button
+              title="Perfil"
+              onPress={ this.haciaPerfil.bind(this) }
+            />
+          </View>
+        </Drawer>
       </View>
     );
   }
